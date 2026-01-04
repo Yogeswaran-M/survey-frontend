@@ -12,7 +12,9 @@ export default function SurveyForm() {
   });
 
   useEffect(() => {
-    fetch("https://election-backend-xw9v.onrender.com")
+    fetch("https://election-backend-xw9v.onrender.com/api/vote")
+    console.log("use Effect running");
+    
   },[]);
 
   const submitVote = async () => {
