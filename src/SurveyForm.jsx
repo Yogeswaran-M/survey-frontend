@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import API from "./api.js";
 
 export default function SurveyForm() {
@@ -10,6 +10,10 @@ export default function SurveyForm() {
     district: "",
     party: ""
   });
+
+  useEffect(() => {
+    fetch("https://election-backend-xw9v.onrender.com")
+  },[]);
 
   const submitVote = async () => {
 
