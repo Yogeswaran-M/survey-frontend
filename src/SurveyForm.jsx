@@ -68,16 +68,24 @@ export default function SurveyForm() {
   };
 
   return (
-    <div className="bg" style={{ padding: "10px" }}>
+    <div className="form-wrapper">
+     
+      
+      {/* <div className=""> */}
+    <div className="survey-form" style={{ padding: "0px" }}>
+       <div className="brand-header">
+        <img src="/Ylogo1.jpg" alt="YoYo Corp Logo" className="brand-logo" />
+        <h2 className="brand-name">© 2026 YOYO Corp. All Rights Reserved.</h2>
+      </div>
       <img
         className="rounded-circle"
-        style={{ width: "150px", marginTop:"20px" }}
+        style={{ width: "150px", marginTop:"10px" }}
         src="/surya.jpeg"
         alt=""
       />
-      <br /><br />
+      <br />
 
-      <h2>Election Survey by VKR Surya</h2>
+      <h3>Election Survey by VKR Surya</h3>
       <br />
 
       {/* NAME */}
@@ -173,9 +181,16 @@ export default function SurveyForm() {
       </select>
       <br /><br />
 
-      <button onClick={submitVote}>Submit</button>
+      <button onClick={submitVote}>Submit</button> <hr />
+       <div className="disclaimer">
+      <small><span><b>Disclaimer:</b></span>“This is an independent election survey conducted only for research and informational purposes. It is not affiliated with the Election Commission of India or any political party. The data collected will be kept confidential and used only for analysis.” </small>  
+       
+      </div>
       {/* <button className="btn btn-primary">Admin</button> */}
 
+    </div>
+   
+    {/* </div> */}
     </div>
     
   );

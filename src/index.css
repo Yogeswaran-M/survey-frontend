@@ -31,16 +31,44 @@ select{
   width: 180px;
   height: 180px;
 } */
-.main{
-  margin-top: -10px;
-  
-
+*{
+  box-sizing: border-box;
 }
+
+body{
+  margin: 0;
+  padding: 0;
+}
+/* outer wrapper */
+.form-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  padding: 1px;
+  text-align: center;
+}
+
+/* actual form box */
+.survey-form {
+  width: 100%;
+  max-width: 500px;   /* 👈 mobile perfect */
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+hr{
+  margin-bottom: 0;
+}
+
+
 .bg{
-  margin-left: 450px;
-  margin-top: -40px;
+  /* margin-left: 450px; */
+  /* margin-top: 10px; */
   width: 600px;
-  height: 750px;
+  /* height: 750px; */
   border: 2px solid gray;
   border-radius: 10px;
   text-align: center;
@@ -55,11 +83,11 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  /* margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
 h1 {
@@ -106,13 +134,68 @@ button:focus-visible {
 }
 
 @media screen and (max-width: 600px) {
-  .bg {
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  /* .bg {
     
     height: 700px;
     width: 400px;
+  } */
+}
+
+/* .admin{
+  margin-left: 500px;
+} */
+.disclaimer{
+  background: whitesmoke;
+  width: 100%;
+  margin: 0;
+  padding: 8px 0 0;
+  text-align: center;
+  writing-mode: horizontal-tb;
+  line-height: 1.4;
+  text-align: left;
+  transform: none;
+}
+
+/* BRAND HEADER */
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* left + right */
+  margin-bottom: 0px;
+}
+
+/* LOGO */
+.brand-logo {
+  height: 22px;
+  width: auto;
+}
+
+/* COMPANY NAME */
+.brand-name {
+  font-size: 10px;
+  font-weight: 600;
+  margin: 0;
+  color: gray;
+}
+
+/* MOBILE FIX */
+@media (max-width: 480px) {
+  .brand-header {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .brand-name {
+    font-size: 16px;
   }
 }
 
-.admin{
-  margin-left: 500px;
+.span{
+  margin-left: 210px;
+  /* margin-right: 210px; */
+  font-size: 10px;
 }
