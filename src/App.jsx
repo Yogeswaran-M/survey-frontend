@@ -1,17 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import SurveyForm from './SurveyForm'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import AdminLogin from "./AdminLogin";
+import Dashboard from "./Dashboard";
+import SurveyForm from "./SurveyForm";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <SurveyForm/>
-    </>
-  )
+    <SurveyForm/>
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<Home />} />
+    //     <Route path="/login" element={<AdminLogin />} />
+    //     <Route path="/dashboard" element={<Dashboard />} />
+    //   </Routes>
+    // </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
