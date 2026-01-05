@@ -5,6 +5,17 @@ const districtConstituencies = {
     "Jayankondam"
   ],
 
+  Chengalpattu: [
+    "Pallavaram",
+    "Tambaram",
+    "Chengalpattu",
+    "Thiruporur",
+    "Cheyyur",
+    "Madurantakam",
+    "Uthiramerur",
+    "Kancheepuram"
+  ],
+
   Chennai: [
     "Thiruvottiyur",
     "Dr.Radhakrishnan Nagar",
@@ -23,17 +34,6 @@ const districtConstituencies = {
     "Thiyagarayanagar",
     "Mylapore",
     "Velachery"
-  ],
-
-  Chengalpattu: [
-    "Pallavaram",
-    "Tambaram",
-    "Chengalpattu",
-    "Thiruporur",
-    "Cheyyur",
-    "Madurantakam",
-    "Uthiramerur",
-    "Kancheepuram"
   ],
 
   Coimbatore: [
@@ -118,6 +118,13 @@ const districtConstituencies = {
     "Killiyoor"
   ],
 
+  karur: [
+    "Karur",
+    "Aravakurichi",
+    "Krishnarayapuram",
+    "Kulithalai"
+  ],
+
   Krishnagiri: [
     "Uthangarai",
     "Bargur",
@@ -193,21 +200,18 @@ const districtConstituencies = {
     "Sholingur"
   ],
 
-
-
-
-
   Salem: [
+    "Salem West",
+    "Salem North",
+    "Salem South",
+    "Omalur",
+    "Mettur",
     "Gangavalli",
     "Attur",
     "Yercaud",
-    "Omalur",
-    "Mettur",
+    "veerapandi",
     "Edappadi",
-    "Sankari",
-    "Salem West",
-    "Salem North",
-    "Salem South"
+    "Sankari"
   ],
 
   Sivagangai: [
@@ -239,6 +243,26 @@ const districtConstituencies = {
     "Cumbum"
   ],
 
+  Tiruvallur: [
+    "Gummidipoondi",
+    "Ponneri",
+    "Tiruttani",
+    "Thiruvallur",
+    "Poonamallee",
+    "Avadi",
+    "Maduravoyal",
+    "Ambattur",
+    "Madavaram",
+    "Thiruvottiyur"
+  ],
+
+  Thiruvarur: [
+    "Thiruvarur",
+    "Nannilam",
+    "Thiruthuraipoondi",
+    "Mannargudi"
+  ],
+
   Thoothukudi: [
     "Vilathikulam",
     "Thoothukkudi",
@@ -266,7 +290,15 @@ const districtConstituencies = {
     "Radhapuram"
   ],
 
-  Tiruppur: [
+
+  Tirupattur: [
+    "Vaniyambadi",
+    "Ambur",
+    "Jolarpet",
+    "Tirupattur"
+  ],
+
+  Tirupur: [
     "Dharapuram",
     "Kangayam",
     "Avanashi",
@@ -275,19 +307,6 @@ const districtConstituencies = {
     "Palladam",
     "Udumalaipettai",
     "Madathukulam"
-  ],
-
-  Tiruvallur: [
-    "Gummidipoondi",
-    "Ponneri",
-    "Tiruttani",
-    "Thiruvallur",
-    "Poonamallee",
-    "Avadi",
-    "Maduravoyal",
-    "Ambattur",
-    "Madavaram",
-    "Thiruvottiyur"
   ],
 
   Tiruvannamalai: [
@@ -299,20 +318,6 @@ const districtConstituencies = {
     "Arani",
     "Cheyyar",
     "Vandavasi"
-  ],
-
-  Thiruvarur: [
-    "Thiruvarur",
-    "Nannilam",
-    "Thiruthuraipoondi",
-    "Mannargudi"
-  ],
-
-  Tirupattur: [
-    "Vaniyambadi",
-    "Ambur",
-    "Jolarpet",
-    "Tirupattur"
   ],
 
   Vellore: [
@@ -327,7 +332,7 @@ const districtConstituencies = {
     "Gudiyattam"
   ],
 
-  Villupuram: [
+  Vilupuram: [
     "Gingee",
     "Mailam",
     "Tindivanam",

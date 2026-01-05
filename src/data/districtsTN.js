@@ -32,6 +32,7 @@ const districtsTN = [
   "Tiruchirappalli",
   "Tirunelveli",
   "Tirupattur",
+  "Tirupur",
   "Tiruvannamalai",
   "Vellore",
   "Viluppuram",
