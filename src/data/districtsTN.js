@@ -35,7 +35,7 @@ const districtsTN = [
   "Tirupur",
   "Tiruvannamalai",
   "Vellore",
-  "Viluppuram",
+  "Vilupuram",
   "Virudhunagar"
 ];
 

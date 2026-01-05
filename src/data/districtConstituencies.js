@@ -118,7 +118,7 @@ const districtConstituencies = {
     "Killiyoor"
   ],
 
-  karur: [
+  Karur: [
     "Karur",
     "Aravakurichi",
     "Krishnarayapuram",
@@ -243,7 +243,7 @@ const districtConstituencies = {
     "Cumbum"
   ],
 
-  Tiruvallur: [
+  Thiruvallur: [
     "Gummidipoondi",
     "Ponneri",
     "Tiruttani",
