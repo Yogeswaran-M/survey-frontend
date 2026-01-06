@@ -74,20 +74,21 @@ export default function SurveyForm() {
       {/* <div className=""> */}
     <div className="survey-form" style={{ padding: "0px" }}>
        <div className="brand-header">
-        <img src="/Ylogo1.jpg" alt="YoYo Corp Logo" className="brand-logo" />
-        <h2 className="brand-name">© 2026 YOYO Corp. All Rights Reserved.</h2>
+        {/* <img src="/Ylogo1.jpg" alt="YoYo Corp Logo" className="brand-logo" /> */}
+        
       </div>
       <img
         className="rounded-circle"
-        style={{ width: "150px", marginTop:"10px" }}
-        src="/surya.jpeg"
+        style={{ width: "100px", marginTop:"10px" }}
+        src="/Ylogo1.jpg"
         alt=""
       />
       <br />
 
-      <h3>Election Survey by VKR Surya</h3>
+      <h3><b>YOYO Corp</b></h3>
+      
+      <h6>Election Survey & Public Opinion Analysis</h6>
       <br />
-
       {/* NAME */}
       <input
         placeholder="Name"
@@ -115,12 +116,12 @@ export default function SurveyForm() {
       <br /><br />
 
       {/* PLACE */}
-      <input
+      {/* <input
         placeholder="Your Place"
         value={form.place}
         onChange={e => setForm({ ...form, place: e.target.value })}
       />
-      <br /><br />
+      <br /><br /> */}
 
       {/* ✅ DISTRICT – ALL 38 DISTRICTS */}
       <select
@@ -181,9 +182,14 @@ export default function SurveyForm() {
       </select>
       <br /><br />
 
-      <button onClick={submitVote}>Submit</button> <hr />
+      <button onClick={submitVote}>Submit</button>
+      
+       <hr />
+      
        <div className="disclaimer">
-      <small><span><b>Disclaimer:</b></span>“This is an independent election survey conducted only for research and informational purposes. It is not affiliated with the Election Commission of India or any political party. The data collected will be kept confidential and used only for analysis.” </small>  
+      <small><span><b>Disclaimer:</b></span>“This is an independent election survey conducted only for research and informational purposes. It is not affiliated with the Election Commission of India or any political party. The data collected will be kept confidential and used only for analysis. ” </small> <br />
+      <span className="span">Complaints / Support: <a href="mailto:yogeglceo@gmail.com?subject=Election%20Survey%20Complaint">support@yoyocorp.in</a></span>
+      <h2 className="brand-name">© 2026 YOYO Corp. All Rights Reserved.</h2>  
        
       </div>
       {/* <button className="btn btn-primary">Admin</button> */}

@@ -54,7 +54,7 @@ body{
   width: 100%;
   max-width: 500px;   /* 👈 mobile perfect */
   background: #fff;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   border-radius: 10px;
   padding: 16px;
 }
@@ -150,14 +150,17 @@ button:focus-visible {
 } */
 .disclaimer{
   background: whitesmoke;
+  font-size: 15px;
   width: 100%;
+  height: 50%;
   margin: 0;
-  padding: 8px 0 0;
+  padding: 8px 4px 0.04px 2px;
   text-align: center;
   writing-mode: horizontal-tb;
-  line-height: 1.4;
+  line-height: 1.3;
   text-align: left;
   transform: none;
+  border-radius: 5px;
 }
 
 /* BRAND HEADER */
@@ -176,9 +179,11 @@ button:focus-visible {
 
 /* COMPANY NAME */
 .brand-name {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
-  margin: 0;
+  /* margin: 0; */
+  margin-top: 5px;
+  justify-content: center;
   color: gray;
 }
 
@@ -195,7 +200,7 @@ button:focus-visible {
 }
 
 .span{
-  margin-left: 210px;
+  /* margin-left: 140px; */
   /* margin-right: 210px; */
-  font-size: 10px;
+  font-size: 12px;
 }
