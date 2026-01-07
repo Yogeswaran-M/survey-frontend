@@ -24,7 +24,7 @@ const translations = {
     success: "Vote submitted successfully",
     limit: "Too many attempts. Please wait and try again.",
     duplicate: "This mobile number has already voted",
-    serverError: "Server error"
+    serverError: "Server error. Please try again later."
   },
 
   ta: {
@@ -52,7 +52,7 @@ const translations = {
     success: "உங்கள் பதில் வெற்றிகரமாக பதிவு செய்யப்பட்டது",
     limit: "அதிகமாக முயற்சி செய்கிறீர்கள். சிறிது நேரம் கழித்து முயற்சிக்கவும்.",
     duplicate: "இந்த மொபைல் எண் ஏற்கனவே பயன்படுத்தப்பட்டுள்ளது",
-    serverError: "சர்வர் பிழை"
+    serverError: "சர்வர் பிழை. பிறகு முயற்சிக்கவும்."
   }
 };
 

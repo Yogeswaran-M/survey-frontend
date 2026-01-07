@@ -25,7 +25,7 @@ export default function SurveyForm() {
 
   useEffect(() => {
     localStorage.setItem("lang", lang);
-    fetch("https://election-backend-xw9v.onrender.com/api/vote");
+    fetch("https://election-backend-xw9v.onrender.com/health");
   }, [lang]);
 
   const submitVote = async () => {
@@ -66,7 +66,7 @@ export default function SurveyForm() {
       if(error.response?.status === 429){
         alert(t.limit);
       }
-      if (error.response?.status === 400) {
+      else if (error.response?.status === 400) {
         alert(t.duplicate);
       } else {
         alert(t.serverError);
@@ -80,7 +80,7 @@ export default function SurveyForm() {
         <img
           src="/Ylogo3.jpeg"
           alt=""
-          style={{ width: "100px", marginTop: "20px", marginBottom: "10px" }}
+          style={{ width: "100px", marginTop: "60px", marginBottom: "10px" }}
         />
 
         {/* 🔤 LANGUAGE SWITCH */}
@@ -116,7 +116,9 @@ export default function SurveyForm() {
 
         {/* MOBILE */}
         <input
-          type="number"
+          type="tel"
+          inputMode="numeric"
+          pattern="[6-9][0-9]{9}"
           placeholder={t.mobile}
           value={form.mobile}
           onChange={e => setForm({ ...form, mobile: e.target.value })}
