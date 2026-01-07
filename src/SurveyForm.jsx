@@ -69,19 +69,20 @@ export default function SurveyForm() {
 
   return (
     <div className="form-wrapper">
-
-      {/* 🔤 LANGUAGE SWITCH */}
-      <div style={{ position: "fixed", top: 12, right: 12, zIndex: 1000 }}>
-        <button onClick={() => setLang("en")}>EN</button>
-        <button onClick={() => setLang("ta")}>தமிழ்</button>
-      </div>
-
-      <div className="survey-form" style={{ padding: "0px" }}>
+        <div className="survey-form" style={{ padding: "0px" }}>
         <img
           src="/Ylogo3.jpeg"
           alt=""
           style={{ width: "100px", marginTop: "20px", marginBottom: "10px" }}
         />
+
+      {/* 🔤 LANGUAGE SWITCH */}
+      <div className="lang-switch">
+        <button onClick={() => setLang("en")}>EN</button>
+        <button onClick={() => setLang("ta")}>தமிழ்</button>
+      </div>
+
+     
 
         {/* BRAND – ALWAYS ENGLISH */}
         <h3><b>YOYO <span className="corp">Corp</span></b></h3>

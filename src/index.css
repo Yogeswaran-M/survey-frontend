@@ -41,6 +41,7 @@ body{
 }
 /* outer wrapper */
 .form-wrapper {
+  position: relative;
   min-height: 100vh;
   display: flex;
   justify-content: center; 
@@ -58,6 +59,22 @@ body{
   border: 3.5px solid #ccc;
   border-radius: 10px;
   padding: 16px;
+}
+
+.lang-switch{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.lang-switch button{
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  background: #fff;
 }
 
 hr{
