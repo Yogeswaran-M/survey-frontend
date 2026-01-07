@@ -23,6 +23,8 @@ export default function SurveyForm() {
     party: ""
   });
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     localStorage.setItem("lang", lang);
     fetch("https://election-backend-xw9v.onrender.com/health");
@@ -46,6 +48,8 @@ export default function SurveyForm() {
       return;
     }
 
+    setLoading(true);
+
     try {
       await API.post("/api/vote", form);
       alert(
@@ -62,15 +66,20 @@ export default function SurveyForm() {
         constituency: "",
         party: ""
       });
+      
     } catch (error) {
-      if(error.response?.status === 429){
+      
+
+      if (error.response?.status === 429) {
         alert(t.limit);
       }
-      else if (error.response?.status === 400) {
+      else if (error.response?.status === 409) {
         alert(t.duplicate);
       } else {
         alert(t.serverError);
       }
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -200,7 +209,11 @@ export default function SurveyForm() {
         </select>
         <br /><br />
 
-        <button onClick={submitVote}>{t.submit}</button>
+        <button onClick={submitVote} disabled={loading}>
+          {loading
+            ? (lang === "ta" ? "சமர்ப்பிக்கப்படுகிறது..." : "Submitting...")
+            : t.submit}
+        </button>
 
         <hr />
 
