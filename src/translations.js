@@ -6,7 +6,7 @@ const translations = {
     age: "Age",
     mobile: "Mobile Number",
     mobileNote:
-      "Mobile number is used only for duplicate prevention and will not be used for any other purpose.",
+      "* Mobile number is used only for duplicate prevention and will not be used for any other purpose.",
 
     district: "Select District",
     constituency: "Select Constituency",
@@ -33,7 +33,7 @@ const translations = {
     age: "வயது",
     mobile: "மொபைல் எண்",
     mobileNote:
-      "மீண்டும் பதில்கள் வராமல் தடுப்பதற்காக மட்டுமே மொபைல் எண் பயன்படுத்தப்படுகிறது.",
+      "* மீண்டும் பதில்கள் வராமல் தடுப்பதற்காக மட்டுமே மொபைல் எண் பயன்படுத்தப்படுகிறது.",
 
     district: "மாவட்டத்தைத் தேர்ந்தெடுக்கவும்",
     constituency: "தொகுதியைத் தேர்ந்தெடுக்கவும்",
