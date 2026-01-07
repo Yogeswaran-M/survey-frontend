@@ -27,7 +27,7 @@ export default function SurveyForm() {
       !form.name ||
       !form.age ||
       !form.mobile ||
-      !form.place ||
+      // !form.place ||
       !form.district ||
       !form.constituency ||
       !form.party
@@ -188,7 +188,7 @@ export default function SurveyForm() {
       
        <div className="disclaimer">
       <small><span><b>Disclaimer:</b></span>“This is an independent election survey conducted only for research and informational purposes. It is not affiliated with the Election Commission of India or any political party. The data collected will be kept confidential and used only for analysis. ” </small> <br />
-      <span className="span">Complaints / Support: <a href="mailto:yogeglceo@gmail.com?subject=Election%20Survey%20Complaint">support@yoyocorp.in</a></span>
+      <span className="span">Complaints / Support: <a href="mailto:yogeglceo@gmail.com?subject=Election%20Survey%20Complaint">support@yoyocorp.in</a></span> <br />
       <h2 className="brand-name">© 2026 YOYO Corp. All Rights Reserved.</h2>  
        
       </div>
