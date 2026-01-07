@@ -63,6 +63,9 @@ export default function SurveyForm() {
         party: ""
       });
     } catch (error) {
+      if(error.response?.status === 429){
+        alert(t.limit);
+      }
       if (error.response?.status === 400) {
         alert(t.duplicate);
       } else {

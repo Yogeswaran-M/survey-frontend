@@ -22,6 +22,7 @@ const translations = {
     fillAll: "Fill all fields",
     invalidMobile: "Enter valid 10-digit mobile number",
     success: "Vote submitted successfully",
+    limit: "Too many attempts. Please wait and try again.",
     duplicate: "This mobile number has already voted",
     serverError: "Server error"
   },
@@ -49,6 +50,7 @@ const translations = {
     fillAll: "அனைத்து விவரங்களையும் நிரப்பவும்",
     invalidMobile: "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்",
     success: "உங்கள் பதில் வெற்றிகரமாக பதிவு செய்யப்பட்டது",
+    limit: "அதிகமாக முயற்சி செய்கிறீர்கள். சிறிது நேரம் கழித்து முயற்சிக்கவும்.",
     duplicate: "இந்த மொபைல் எண் ஏற்கனவே பயன்படுத்தப்பட்டுள்ளது",
     serverError: "சர்வர் பிழை"
   }
