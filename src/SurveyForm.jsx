@@ -1,203 +1,214 @@
 import { useEffect, useState } from "react";
 import API from "./api.js";
+import translations from "./translations";
 
-// ✅ IMPORT DATA FILES
+// DATA
 import districtsTN from "./data/districtsTN";
 import districtConstituencies from "./data/districtConstituencies";
+import tnTamilMap from "./data/tnTamilMap"; // ✅ COMBINED MAP
 
 export default function SurveyForm() {
+  const [lang, setLang] = useState(
+    localStorage.getItem("lang") || "en"
+  );
+
+  const t = translations[lang];
+
   const [form, setForm] = useState({
     name: "",
     age: "",
     mobile: "",
-    place: "",
     district: "",
     constituency: "",
     party: ""
   });
 
   useEffect(() => {
+    localStorage.setItem("lang", lang);
     fetch("https://election-backend-xw9v.onrender.com/api/vote");
-    console.log("useEffect running");
-  }, []);
+  }, [lang]);
 
   const submitVote = async () => {
-    // ✅ EMPTY VALIDATION
     if (
       !form.name ||
       !form.age ||
       !form.mobile ||
-      // !form.place ||
       !form.district ||
       !form.constituency ||
       !form.party
     ) {
-      alert("Fill all fields");
+      alert(t.fillAll);
       return;
     }
 
-    // ✅ MOBILE VALIDATION (INDIA)
     if (!/^[6-9]\d{9}$/.test(form.mobile)) {
-      alert("Enter valid 10-digit mobile number");
+      alert(t.invalidMobile);
       return;
     }
 
     try {
-      const res = await API.post("/api/vote", form);
-      alert("Vote submitted successfully");
-      console.log(res.data);
+      await API.post("/api/vote", form);
+      alert(t.success);
 
-      // optional reset
       setForm({
         name: "",
         age: "",
         mobile: "",
-        place: "",
         district: "",
         constituency: "",
         party: ""
       });
     } catch (error) {
       if (error.response?.status === 400) {
-        alert("This mobile number has already voted");
+        alert(t.duplicate);
       } else {
-        alert("Server error");
+        alert(t.serverError);
       }
-      console.error(error);
     }
   };
 
   return (
     <div className="form-wrapper">
-     
-      
-      {/* <div className=""> */}
-    <div className="survey-form" style={{ padding: "0px" }}>
-       <div className="brand-header">
-        {/* <img src="/Ylogo1.jpg" alt="YoYo Corp Logo" className="brand-logo" /> */}
-        
+
+      {/* 🔤 LANGUAGE SWITCH */}
+      <div style={{ position: "fixed", top: 12, right: 12, zIndex: 1000 }}>
+        <button onClick={() => setLang("en")}>EN</button>
+        <button onClick={() => setLang("ta")}>தமிழ்</button>
       </div>
-      <img
-        className="rounded-circle"
-        style={{ width: "100px", marginTop:"10px" }}
-        src="/Ylogo1.jpg"
-        alt=""
-      />
-      <br />
 
-      <h3><b>YOYO Corp</b></h3>
-      
-      <h6>Election Survey & Public Opinion Analysis</h6>
-      <br />
-      {/* NAME */}
-      <input
-        placeholder="Name"
-        value={form.name}
-        onChange={e => setForm({ ...form, name: e.target.value })}
-      />
-      <br /><br />
+      <div className="survey-form" style={{ padding: "0px" }}>
+        <img
+          src="/Ylogo3.jpeg"
+          alt=""
+          style={{ width: "100px", marginTop: "20px", marginBottom: "10px" }}
+        />
 
-      {/* AGE */}
-      <input
-        type="number"
-        placeholder="Age"
-        value={form.age}
-        onChange={e => setForm({ ...form, age: e.target.value })}
-      />
-      <br /><br />
+        {/* BRAND – ALWAYS ENGLISH */}
+        <h3><b>YOYO <span className="corp">Corp</span></b></h3>
 
-      {/* MOBILE */}
-      <input
-        type="number"
-        placeholder="Mobile Number"
-        value={form.mobile}
-        onChange={e => setForm({ ...form, mobile: e.target.value })}
-      />
-      <br /><br />
+        <h6>{t.subtitle}</h6>
+        <br />
 
-      {/* PLACE */}
-      {/* <input
-        placeholder="Your Place"
-        value={form.place}
-        onChange={e => setForm({ ...form, place: e.target.value })}
-      />
-      <br /><br /> */}
+        {/* NAME */}
+        <input
+          placeholder={t.name}
+          value={form.name}
+          onChange={e => setForm({ ...form, name: e.target.value })}
+        />
+        <br /><br />
 
-      {/* ✅ DISTRICT – ALL 38 DISTRICTS */}
-      <select
-        value={form.district}
-        onChange={e =>
-          setForm({
-            ...form,
-            district: e.target.value,
-            constituency: "" // reset constituency
-          })
-        }
-      >
-        <option value="">Select District</option>
-        {districtsTN.map((d, i) => (
-          <option key={i} value={d}>
-            {d}
-          </option>
-        ))}
-      </select>
-      <br /><br />
+        {/* AGE */}
+        <input
+          type="number"
+          placeholder={t.age}
+          value={form.age}
+          onChange={e => setForm({ ...form, age: e.target.value })}
+        />
+        <br /><br />
 
-      {/* ✅ CONSTITUENCY – DEPENDENT */}
-      <select
-        value={form.constituency}
-        disabled={!form.district}
-        onChange={e =>
-          setForm({ ...form, constituency: e.target.value })
-        }
-      >
-        <option value="">Select Constituency</option>
+        {/* MOBILE */}
+        <input
+          type="number"
+          placeholder={t.mobile}
+          value={form.mobile}
+          onChange={e => setForm({ ...form, mobile: e.target.value })}
+        />
+        <p className="disclaimer-note">{t.mobileNote}</p>
 
-        {form.district &&
-          districtConstituencies[form.district]?.map((c, i) => (
-            <option key={i} value={c}>
-              {c}
+        {/* ✅ DISTRICT – TAMIL / ENGLISH LABEL */}
+        <select
+          value={form.district}
+          onChange={e =>
+            setForm({
+              ...form,
+              district: e.target.value,
+              constituency: ""
+            })
+          }
+        >
+          <option value="">{t.district}</option>
+
+          {districtsTN.map((d, i) => (
+            <option key={i} value={d}>
+              {lang === "ta"
+                ? tnTamilMap.districts[d] || d
+                : d}
             </option>
           ))}
-      </select>
-      <br /><br />
+        </select>
+        <br /><br />
 
-      {/* PARTY */}
-      <select
-        value={form.party}
-        onChange={e => setForm({ ...form, party: e.target.value })}
-      >
-        <option value="">Select Party</option>
-        <option>DMK</option>
-        <option>AIADMK</option>
-        <option>TVK</option>
-        <option>BJP</option>
-        <option>Congress</option>
-        <option>NTK</option>
-        <option>PMK</option>
-        <option>VCK</option>
-        <option>MDMK</option>
-        <option>AMMK</option>
-        <option>Others</option>
-      </select>
-      <br /><br />
+        {/* ✅ CONSTITUENCY – TAMIL / ENGLISH LABEL */}
+        <select
+          value={form.constituency}
+          disabled={!form.district}
+          onChange={e =>
+            setForm({ ...form, constituency: e.target.value })
+          }
+        >
+          <option value="">{t.constituency}</option>
 
-      <button onClick={submitVote}>Submit</button>
-      
-       <hr />
-      
-       <div className="disclaimer">
-      <small><span><b>Disclaimer:</b></span>“This is an independent election survey conducted only for research and informational purposes. It is not affiliated with the Election Commission of India or any political party. The data collected will be kept confidential and used only for analysis. ” </small> <br />
-      <span className="span">Complaints / Support: <a href="mailto:yogeglceo@gmail.com?subject=Election%20Survey%20Complaint">support@yoyocorp.in</a></span> <br />
-      <h2 className="brand-name">© 2026 YOYO Corp. All Rights Reserved.</h2>  
-       
+          {form.district &&
+            districtConstituencies[form.district]?.map((c, i) => (
+              <option key={i} value={c}>
+                {lang === "ta"
+                  ? tnTamilMap.constituencies[c] || c
+                  : c}
+              </option>
+            ))}
+        </select>
+        <br /><br />
+
+        {/* PARTY – TAMIL / ENGLISH */}
+        <select
+          value={form.party}
+          onChange={e => setForm({ ...form, party: e.target.value })}
+        >
+          <option value="">
+            {lang === "ta" ? "கட்சியைத் தேர்ந்தெடுக்கவும்" : "Select Party"}
+          </option>
+
+          {[
+            "DMK",
+            "AIADMK",
+            "TVK",
+            "BJP",
+            "Congress",
+            "NTK",
+            "PMK",
+            "VCK",
+            "MDMK",
+            "AMMK",
+            "Others"
+          ].map(party => (
+            <option key={party} value={party}>
+              {lang === "ta"
+                ? tnTamilMap.parties[party] || party
+                : party}
+            </option>
+          ))}
+        </select>
+        <br /><br />
+
+        <button onClick={submitVote}>{t.submit}</button>
+
+        <hr />
+
+        {/* DISCLAIMER */}
+        <div className="disclaimer-box">
+          <h6>{t.disclaimerTitle}</h6>
+          <p className="disclaimer-text">{t.disclaimerText}</p>
+
+          <p className="disclaimer-support">
+            {t.support}:{" "}
+            <a href="mailto:support@yoyocorp.in">support@yoyocorp.in</a>
+          </p>
+
+          <p className="disclaimer-copy">
+            © 2026 YOYO Corp. All Rights Reserved.
+          </p>
+        </div>
       </div>
-      {/* <button className="btn btn-primary">Admin</button> */}
-
     </div>
-   
-    {/* </div> */}
-    </div>
-    
   );
 }
