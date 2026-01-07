@@ -48,7 +48,11 @@ export default function SurveyForm() {
 
     try {
       await API.post("/api/vote", form);
-      alert(t.success);
+      alert(
+        lang === "ta"
+          ? `நன்றி ${form.name}! உங்கள் பதில் வெற்றிகரமாக பதிவு செய்யப்பட்டது.`
+          : `Thank you ${form.name}! Your response has been recorded successfully.`
+      );
 
       setForm({
         name: "",
@@ -69,20 +73,20 @@ export default function SurveyForm() {
 
   return (
     <div className="form-wrapper">
-        <div className="survey-form" style={{ padding: "0px" }}>
+      <div className="survey-form" style={{ padding: "0px" }}>
         <img
           src="/Ylogo3.jpeg"
           alt=""
           style={{ width: "100px", marginTop: "20px", marginBottom: "10px" }}
         />
 
-      {/* 🔤 LANGUAGE SWITCH */}
-      <div className="lang-switch">
-        <button onClick={() => setLang("en")}>EN</button>
-        <button onClick={() => setLang("ta")}>தமிழ்</button>
-      </div>
+        {/* 🔤 LANGUAGE SWITCH */}
+        <div className="lang-switch">
+          <button onClick={() => setLang("en")}>EN</button>
+          <button onClick={() => setLang("ta")}>தமிழ்</button>
+        </div>
 
-     
+
 
         {/* BRAND – ALWAYS ENGLISH */}
         <h3><b>YOYO <span className="corp">Corp</span></b></h3>
