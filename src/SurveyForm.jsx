@@ -44,7 +44,7 @@ export default function SurveyForm() {
     }
 
     //Age specific validation
-    if(Number(form.age) < 18) {
+    if (Number(form.age) < 18) {
       alert(t.agelimit);
       return;
     }
@@ -72,9 +72,9 @@ export default function SurveyForm() {
         constituency: "",
         party: ""
       });
-      
+
     } catch (error) {
-      if(error.response?.data?.error) {
+      if (error.response?.data?.error) {
         alert(error.response.data.error);
       }
       else if (error.response?.status === 429) {
@@ -85,7 +85,7 @@ export default function SurveyForm() {
       } else {
         alert(t.serverError);
       }
-    }finally{
+    } finally {
       setLoading(false);
     }
   };
@@ -114,10 +114,21 @@ export default function SurveyForm() {
         <br />
 
         {/* NAME */}
+        {/* NAME – English + Tamil letters only */}
         <input
+          type="text"
           placeholder={t.name}
           value={form.name}
-          onChange={e => setForm({ ...form, name: e.target.value })}
+          onChange={e => {
+            const value = e.target.value;
+
+            // ✅ Allow only English + Tamil letters + space
+            const nameRegex = /^[A-Za-z\u0B80-\u0BFF\s]*$/;
+
+            if (nameRegex.test(value)) {
+              setForm({ ...form, name: value });
+            }
+          }}
         />
         <br /><br />
 
