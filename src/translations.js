@@ -20,6 +20,7 @@ const translations = {
 
     support: "Complaints / Support",
     fillAll: "Fill all fields",
+    agelimit: "Age is must be 18 or above",
     invalidMobile: "Enter valid 10-digit mobile number",
     success: "Vote submitted successfully",
     limit: "Too many attempts. Please wait and try again.",
@@ -48,6 +49,7 @@ const translations = {
 
     support: "புகார்கள் / உதவி",
     fillAll: "அனைத்து விவரங்களையும் நிரப்பவும்",
+    agelimit: "வயது 18 அல்லது அதற்கு மேல் இருக்க வேண்டும்",
     invalidMobile: "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்",
     success: "உங்கள் பதில் வெற்றிகரமாக பதிவு செய்யப்பட்டது",
     limit: "அதிகமாக முயற்சி செய்கிறீர்கள். சிறிது நேரம் கழித்து முயற்சிக்கவும்.",

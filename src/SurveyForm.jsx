@@ -43,6 +43,12 @@ export default function SurveyForm() {
       return;
     }
 
+    //Age specific validation
+    if(Number(form.age) < 18) {
+      alert(t.agelimit);
+      return;
+    }
+
     if (!/^[6-9]\d{9}$/.test(form.mobile)) {
       alert(t.invalidMobile);
       return;
@@ -68,9 +74,10 @@ export default function SurveyForm() {
       });
       
     } catch (error) {
-      
-
-      if (error.response?.status === 429) {
+      if(error.response?.data?.error) {
+        alert(error.response.data.error);
+      }
+      else if (error.response?.status === 429) {
         alert(t.limit);
       }
       else if (error.response?.status === 409) {
