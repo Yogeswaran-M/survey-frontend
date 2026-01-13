@@ -242,7 +242,7 @@ export default function SurveyForm() {
 
           <p className="disclaimer-support">
             {t.support}:{" "}
-            <a href="mailto:support@yoyocorp.in">support@yoyocorp.in</a>
+            <a href="mailto:yoyocorp.help.in@gmail.com">support@yoyocorp.in</a>
           </p>
 
           <p className="disclaimer-copy">
